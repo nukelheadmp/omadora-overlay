@@ -7,7 +7,7 @@
 --vim.o.laststatus = 0
 
 vim.g.docrepos = {
-  documentation = os.getenv("HOME") .. "/Projects/documentation",
-  notes = os.getenv("HOME") .. "/Projects/notes",
-  scripts = os.getenv("HOME") .. "/Projects/scripts",
+  documentation = os.getenv("HOME") .. "/Documents/Documentation",
+  notes = os.getenv("HOME") .. "/Documents/Notes",
+  scripts = os.getenv("HOME") .. "/Documents/Scripts",
 }
