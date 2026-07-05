@@ -41,7 +41,6 @@ gvfs-smb
 ImageMagick
 imv
 iputils
-iwd
 jetbrains-mono-fonts
 jq
 kvantum
@@ -57,6 +56,14 @@ mpv
 nautilus
 nautilus-python
 neovim
+NetworkManager
+NetworkManager-bluetooth
+NetworkManager-openvpn
+NetworkManager-openvpn-gnome
+NetworkManager-tui
+NetworkManager-wifi
+network-manager-applet
+nm-connection-editor
 pciutils
 pinentry-gnome3
 pipx

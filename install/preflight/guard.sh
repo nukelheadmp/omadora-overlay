@@ -23,8 +23,8 @@ if [ "$(uname -m)" != "x86_64" ] && [ "$(uname -m)" != "aarch64" ]; then
 fi
 
 # Should be a core only install
-groups=$(dnf group list --installed --hidden -q | awk 'NR>1 {print $1}')
-[ "$groups" != "core" ] && abort "Core only Fedora install"
+#groups=$(dnf group list --installed --hidden -q | awk 'NR>1 {print $1}')
+#[ "$groups" != "core" ] && abort "Core only Fedora install"
 
 # Cleared all guards
 echo "Guards: OK"

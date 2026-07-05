@@ -157,7 +157,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "omadora-exec omadora-launch-wifi"
+    "on-click": "nm-applet --indicator"
   },
   "battery": {
     "format": "{capacity}% {icon}",
