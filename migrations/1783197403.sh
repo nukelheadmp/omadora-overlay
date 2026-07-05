@@ -13,7 +13,8 @@ sudo dnf install -y \
   NetworkManager-tui \
   NetworkManager-wifi \
   network-manager-applet \
-  nm-connection-editor
+  nm-connection-editor \
+  wpa_supplicant
 sudo systemctl disable iwd systemd-networkd
 sudo systemctl enable NetworkManager
 cp ~/.local/share/omadora/config/waybar/config.jsonc ~/.config/waybar/
