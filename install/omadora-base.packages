@@ -26,7 +26,6 @@ fzf
 git
 gnome-calculator
 gnome-keyring-pam
-gnome-themes-extra
 gtk4-devel
 gum
 gvfs
@@ -91,6 +90,7 @@ tree
 unzip
 uresourced
 usbutils
+v4l-utils
 waybar
 wf-recorder
 wget
