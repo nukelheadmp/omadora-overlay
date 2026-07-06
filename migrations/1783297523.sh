@@ -17,8 +17,8 @@ for app_id in "${default_flatpaks[@]}"; do
   fi
 done
 
-#if flatpak remotes --user --columns=name 2>/dev/null | grep -Fxq flathub; then
-#  flatpak remote-delete --user --force flathub
-#fi
+if flatpak remotes --user --columns=name 2>/dev/null | grep -Fxq flathub; then
+  flatpak remote-delete --user --force flathub
+fi
 
 source "$OMADORA_INSTALL/packaging/flatpak.sh"

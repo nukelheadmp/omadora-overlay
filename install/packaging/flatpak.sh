@@ -16,4 +16,4 @@ omadora-exec omadora-flatpak-cmd-install com.dec05eba.gpu_screen_recorder gpu-sc
 flatpak override --user --filesystem=home --filesystem=/tmp/localsend org.localsend.localsend_app
 
 # Synology Drive
-flatpak install --user --noninteractive flathub com.synology.SynologyDrive
+sudo flatpak install --system --noninteractive -y flathub com.synology.SynologyDrive
