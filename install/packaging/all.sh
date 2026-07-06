@@ -1,4 +1,5 @@
 source "$OMADORA_INSTALL/packaging/base.sh"
+source "$OMADORA_INSTALL/packaging/codecs.sh"
 source "$OMADORA_INSTALL/packaging/cargo.sh"
 source "$OMADORA_INSTALL/packaging/flatpak.sh"
 source "$OMADORA_INSTALL/packaging/fonts.sh"
