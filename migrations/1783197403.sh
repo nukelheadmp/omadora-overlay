@@ -2,7 +2,6 @@ systemctl --user enable --now ssh-agent
 cp ~/.local/share/omadora/config/hypr/autostart.conf ~/.config/hypr/
 cp ~/.local/share/omadora/config/hypr/looknfeel.conf ~/.config/hypr/
 cp ~/.local/share/omadora/config/tmux/tmux.conf ~/.config/tmux/
-cp -rf ~/.local/share/omadora/post-config/config/* ~/.config/
 sudo dnf copr enable -y atim/lazygit
 sudo dnf install -y lazygit
 sudo dnf install -y \

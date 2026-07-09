@@ -12,4 +12,4 @@ sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 flatpak install --user --noninteractive flathub com.synology.SynologyDrive
 
 # Disable preselect in nvim blink plugin
-cp ~/.local/share/omadora/post-config/config/nvim/lua/plugins/blink.lua ~/.config/nvim/lua/plugins/
+cp ~/.local/share/omadora/default/nvim/lua/plugins/blink.lua ~/.config/nvim/lua/plugins/
