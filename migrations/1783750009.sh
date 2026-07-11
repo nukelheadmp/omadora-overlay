@@ -2,7 +2,7 @@ echo "Install lightdm package"
 sudo dnf install -y lightdm
 
 echo "Copying default background"
-cp ~/.local/share/omadora/themes/rose-pine-darker/backgrounds/0-default.png /usr/share/backgrounds/default.png
+sudo cp ~/.local/share/omadora/themes/rose-pine-darker/backgrounds/0-default.png /usr/share/backgrounds/default.png
 
 echo "Copying lightdm config"
 sudo cp ~/.local/share/omadora/default/lightdm/slick-greeter.conf /etc/lightdm/
