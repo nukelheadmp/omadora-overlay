@@ -1,3 +1,7 @@
+echo "Update Hyprland config"
+omadora_run omadora-refresh-config hypr/hyprland.conf
+hyprctl reload >/dev/null
+
 echo "Install lightdm package"
 sudo dnf install -y lightdm
 
