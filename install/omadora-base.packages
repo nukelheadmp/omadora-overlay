@@ -51,6 +51,7 @@ libepoxy-devel
 libinput
 libxkbcommon
 libxkbcommon-utils
+lightdm
 lsof
 mako
 mpv
