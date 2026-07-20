@@ -3,7 +3,7 @@
 # shellcheck source=lib/common/init.sh
 source "$(dirname "${BASH_SOURCE[0]}")/../lib/common/init.sh"
 
-# Launch the Omadora wifi controls (provided by the Impala TUI).
+# Launch the Omadora wifi controls (Switched to nmtui).
 
 rfkill unblock wifi
-omadora_exec omadora-launch-or-focus-tui impala
+omadora_exec omadora-launch-or-focus-tui nmtui
