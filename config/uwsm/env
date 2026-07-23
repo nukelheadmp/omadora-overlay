@@ -1,5 +1,8 @@
 # Changes require a restart to take effect.
 
+# For SSH Agent
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
 # Set default terminal and editor
 source ~/.config/uwsm/default
 
