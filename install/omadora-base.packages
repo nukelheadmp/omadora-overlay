@@ -64,6 +64,7 @@ NetworkManager-openvpn
 NetworkManager-openvpn-gnome
 NetworkManager-tui
 NetworkManager-wifi
+nwg-look
 pciutils
 pinentry-gnome3
 pipx
@@ -73,6 +74,7 @@ plymouth-plugin-*
 power-profiles-daemon
 qt5-qtwayland
 qt6-qtwayland
+qt6ct
 ripgrep
 seahorse
 seahorse-nautilus
