@@ -1,4 +1,14 @@
-# Omadora
+# Omadora Overlay
+
+This fork is an extension of [Omadora](https://github.com/elpritchos/omadora).
+The sole purpose is just to add additional packages and customizations for my
+own personal use. Anyone is welcome to use it, but do so at your own risk.
+Everything here should be considered experimental, and none of the included
+packages have been vetted or guaranteed.
+
+Original README is as follows:
+
+## Omadora
 
 This is a minimal install of Hyprland for Fedora 44, based on the Omarchy implementation and patterns.
 It provides a more stable release cycle with tested and curated packages.
