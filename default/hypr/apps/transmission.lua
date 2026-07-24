@@ -1,1 +1,5 @@
-o.window("^([t|T]ransmission)$", { no_screen_share = true, tag = "+floating-window" })
+hl.window_rule({
+  name = "Transmission",
+  match = { class = "com.transmissionbt.transmission" },
+  float = true,
+})
