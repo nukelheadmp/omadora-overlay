@@ -29,3 +29,6 @@ ln -snf ~/.config/omadora/current/theme/mako.ini ~/.config/mako/config
 
 # Screensaver
 pipx install terminaltexteffects==0.14.2
+
+# Custom backgrounds for themes
+git clone https://github.com/nukelheadmp/nord-background.git ~/.config/omadora/backgrounds/omarchy-nord/
