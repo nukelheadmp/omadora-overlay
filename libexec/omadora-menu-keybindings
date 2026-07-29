@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# shellcheck source=lib/common/init.sh
-source "$(dirname "${BASH_SOURCE[0]}")/../lib/common/init.sh"
-
 # Display Hyprland keybindings defined in your configuration using wofi for an interactive search menu.
 
 declare -A KEYCODE_SYM_MAP
@@ -100,8 +97,12 @@ dynamic_bindings() {
       if (!seen) return
       seen = 0
 
-      key = f["key"]
-      if (key == "" && f["keycode"] != "0") key = "code:" f["keycode"]
+      if (f["keycode"] != "" && f["keycode"] != "0") {
+        key = "code:" f["keycode"]
+      } else {
+        key = f["key"]
+        if (match(key, /code:[0-9]+$/)) key = substr(key, RSTART)
+      }
 
       arg = f["arg"]
       sub(/~\/.local\/share\/omadora\/bin\//, "", arg)
@@ -138,8 +139,10 @@ static_bindings() {
 parse_bindings() {
   awk -F, '
 {
-    # Combine the modifier and key (first two fields)
-    key_combo = $1 " + " $2;
+    # Combine the modifiers and key (first two fields)
+    modifiers = $1;
+    gsub(/[ \t]+/, " + ", modifiers);
+    key_combo = modifiers (modifiers != "" ? " + " : "") $2;
 
     # Clean up: strip leading "+" if present, trim spaces
     gsub(/^[ \t]*\+?[ \t]*/, "", key_combo);
@@ -251,5 +254,22 @@ output_keybindings() {
 if [[ "$1" == "--print" || "$1" == "-p" ]]; then
   output_keybindings
 else
-  output_keybindings | omadora_run omadora-launch-wofi --dmenu -p 'Search keybindings…'
+  output_keybindings |
+    awk '
+      {
+        separator = index($0, " → ")
+        key_combo = substr($0, 1, separator - 1)
+        action = substr($0, separator)
+
+        gsub(/&/, "\\&amp;", key_combo)
+        gsub(/</, "\\&lt;", key_combo)
+        gsub(/>/, "\\&gt;", key_combo)
+        gsub(/&/, "\\&amp;", action)
+        gsub(/</, "\\&lt;", action)
+        gsub(/>/, "\\&gt;", action)
+
+        printf "<tt>%s</tt>%s\n", key_combo, action
+      }
+    ' |
+    "$OMADORA_PATH/libexec/omadora-launch-wofi" --dmenu --allow-markup --define parse_action=true -p 'Search keybindings…'
 fi

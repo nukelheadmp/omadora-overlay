@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# shellcheck source=lib/common/init.sh
-source "$(dirname "${BASH_SOURCE[0]}")/../lib/common/init.sh"
-
 # Display Tmux keybindings defined in your configuration using wofi for an interactive search menu.
 
 print_only=false
@@ -231,5 +228,22 @@ END {
 if [[ $print_only == "true" ]]; then
   output_keybindings
 else
-  output_keybindings | omadora_run omadora-launch-wofi --dmenu -p 'Search Tmux keybindings…'
+  output_keybindings |
+    awk '
+      {
+        separator = index($0, " → ")
+        key_combo = substr($0, 1, separator - 1)
+        action = substr($0, separator)
+
+        gsub(/&/, "\\&amp;", key_combo)
+        gsub(/</, "\\&lt;", key_combo)
+        gsub(/>/, "\\&gt;", key_combo)
+        gsub(/&/, "\\&amp;", action)
+        gsub(/</, "\\&lt;", action)
+        gsub(/>/, "\\&gt;", action)
+
+        printf "<tt>%s</tt>%s\n", key_combo, action
+      }
+    ' |
+    "$OMADORA_PATH/libexec/omadora-launch-wofi" --dmenu --allow-markup --define parse_action=true -p 'Search Tmux keybindings…'
 fi

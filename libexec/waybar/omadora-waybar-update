@@ -104,6 +104,16 @@ if ! output="$(
   def count_label($count; $singular; $plural):
     "\($count) \(if $count == 1 then $singular else $plural end)";
 
+  def advisory_priority:
+    (.severity | ascii_downcase) as $severity
+    | if $severity == "critical" then 0
+      elif $severity == "important" then 1
+      elif $severity == "moderate" then 2
+      elif $severity == "low" then 3
+      elif $severity == "none" then 4
+      else 5
+      end;
+
   def age_label($seconds):
     if $seconds < 60 then
       "just now"
@@ -193,29 +203,24 @@ if ! output="$(
   | (
       [
         .advisories.dnf.items[]
-        | select(
-            .type == "security"
-            and (.severity | ascii_downcase) == "critical"
-          )
+        | select(.type == "security")
       ]
-      | sort_by(.id)
+      | sort_by([advisory_priority, .id])
+    ) as $security_advisories
+  | (
+      $security_advisories
+      | map(select((.severity | ascii_downcase) == "critical"))
     ) as $critical_advisories
   | (
-      [
-        .advisories.dnf.items[]
-        | select(
-            .type == "security"
-            and (.severity | ascii_downcase) == "important"
-          )
-      ]
-      | sort_by(.id)
-    ) as $important_advisories
+      $security_advisories
+      | map(select((.severity | ascii_downcase) != "critical"))
+    ) as $remaining_advisories
   | (
       [$target_advisory_items - ($critical_advisories | length), 0]
       | max
-    ) as $important_slots
+    ) as $remaining_slots
   | (
-      $critical_advisories + $important_advisories[0:$important_slots]
+      $critical_advisories + $remaining_advisories[0:$remaining_slots]
     ) as $displayed_advisories
   | (
       [
@@ -267,7 +272,9 @@ if ! output="$(
             | map("\(.severity | markup_escape) · \(.title | markup_escape)")
           )
         + (
-            if $hidden_advisory_count > 0 then
+            if $hidden_advisory_count > 0
+              and ($displayed_advisories | length) > 0
+            then
               ["+\($hidden_advisory_count) more"]
             else
               []
