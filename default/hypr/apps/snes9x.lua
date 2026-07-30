@@ -1,7 +1,6 @@
 hl.window_rule({
-  name = "Nestopia",
   match = {
-    class = "nestopia",
+    class = "snes9x-gtk",
   },
   float = true,
   idle_inhibit = "focus",
