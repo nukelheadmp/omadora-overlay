@@ -7,4 +7,6 @@ source "$(dirname "${BASH_SOURCE[0]}")/../lib/common/init.sh"
 # Also attempts to unblock bluetooth service if rfkill had blocked it.
 
 rfkill unblock bluetooth
-omadora_exec omadora-launch-or-focus-tui bluetui
+#omadora_exec omadora-launch-or-focus-tui bluetui
+# Replace with blueman, not concerned about TUIs for now
+blueman
