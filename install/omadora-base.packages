@@ -7,8 +7,6 @@ bind-utils
 bolt
 brightnessctl
 btop
-cargo
-clang
 dbus-tools
 dua-cli
 evince
@@ -26,7 +24,6 @@ fzf
 git
 gnome-calculator
 gnome-keyring-pam
-gtk4-devel
 gum
 gvfs
 gvfs-afc
@@ -45,8 +42,6 @@ jq
 keepassxc
 kvantum
 kvantum-qt5
-libadwaita-devel
-libepoxy-devel
 libinput
 libxkbcommon
 libxkbcommon-utils
