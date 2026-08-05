@@ -22,6 +22,8 @@ fd-find
 flatpak
 flatseal
 fprintd-pam
+fuse
+fuse-libs
 fzf
 git
 gnome-calculator
