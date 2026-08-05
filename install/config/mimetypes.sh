@@ -55,3 +55,6 @@ xdg-mime default nvim.desktop text/x-c
 xdg-mime default nvim.desktop text/x-c++
 xdg-mime default nvim.desktop application/xml
 xdg-mime default nvim.desktop text/xml
+
+# Open ssh connections with terminal app
+xdg-mime default ssh-handler.desktop x-scheme-handler/ssh

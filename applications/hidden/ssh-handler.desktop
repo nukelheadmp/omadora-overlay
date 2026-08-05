@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=SSH Handler
+Comment=Open SSH connections
+Exec=xdg-terminal-exec ssh %u
+# Or use: Exec=gnome-terminal -- ssh %u   (replace with your preferred terminal)
+# Or for a simple xterm: Exec=xterm -e ssh %u
+Icon=utilities-terminal
+Type=Application
+Terminal=false
+MimeType=x-scheme-handler/ssh;
+Categories=Utility;Network;
+Hidden=true
